@@ -16,6 +16,12 @@ module LazyHighCharts
       high_graph_stock(placeholder, object, &block).concat(content_tag("div", "", object.html_options))
     end
 
+    def high_map(placeholder, object, &block)
+      object.html_options.merge!({:id => placeholder})
+      object.options[:chart][:renderTo] = placeholder
+      high_graph_map(placeholder, object, &block).concat(content_tag("div", "", object.html_options))
+    end
+
     def high_chart_globals(object)
       build_globals_html_output(object)
     end
@@ -26,6 +32,10 @@ module LazyHighCharts
 
     def high_graph_stock(placeholder, object, &block)
       build_html_output("StockChart", placeholder, object, &block)
+    end
+
+    def high_graph_map(placeholder, object, &block)
+      build_html_output("Map", placeholder, object, &block)
     end
 
     private

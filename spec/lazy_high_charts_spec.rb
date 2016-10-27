@@ -88,6 +88,10 @@ describe HighChartsHelper do
       it "should set Chart Stock" do
         expect(high_stock(@placeholder, @chart)).to match(/window\.chart_placeholder\s+=\s+new\s+Highcharts.StockChart/)
       end
+
+      it "should set Map" do
+        expect(high_map(@placeholder, @chart)).to match(/window\.chart_placeholder\s+=\s+new\s+Highcharts.Map/)
+      end
     end
 
     describe "HighChart Variable" do

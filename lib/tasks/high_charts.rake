@@ -10,7 +10,7 @@ end
 
 namespace :highcharts do
   desc "Update highcharts.js from latest Builds on Highcharts codebase: http://code.highcharts.com/"
-  task :update => [:core, :stock]
+  task :update => [:core, :stock, :maps]
   task :core do
     say "Grabbing Core from Highcharts codebase..." do
       sh "mkdir -p vendor/assets/javascripts/highcharts/modules/"
@@ -37,6 +37,17 @@ namespace :highcharts do
       sh "curl -# http://code.highcharts.com/stock/modules/funnel.js -L --compressed -o vendor/assets/javascripts/highcharts/stock/modules/funnel.js"
       sh "curl -# http://code.highcharts.com/stock/adapters/mootools-adapter.js -L --compressed -o vendor/assets/javascripts/highcharts/stock/adapters/mootools-adapter.js"
       sh "curl -# http://code.highcharts.com/stock/adapters/prototype-adapter.js -L --compressed -o vendor/assets/javascripts/highcharts/stock/adapters/prototype-adapter.js"
+    end
+  end
+
+  task :maps do
+    say "Grabbing High Maps JS from Upstream..." do
+
+      sh "mkdir -p vendor/assets/javascripts/highcharts/maps/modules/"
+
+      sh "curl -# http://code.highcharts.com/maps/highmaps.js -L --compressed -o vendor/assets/javascripts/highcharts/maps/highmaps.js"
+      sh "curl -# http://code.highcharts.com/maps/modules/map.js -L --compressed -o vendor/assets/javascripts/highcharts/maps/modules/map.js"
+      sh "curl -# http://code.highcharts.com/maps/modules/exporting.js -L --compressed -o vendor/assets/javascripts/highcharts/maps/modules/exporting.js"
     end
   end
 
