@@ -24,7 +24,7 @@ module LazyHighCharts
     #	title:		legend: 		xAxis: 		yAxis: 		tooltip: 	credits:  :plotOptions
     def defaults_options
       self.title({:text => nil})
-      self.legend({:layout => "vertical", :style => {}})
+      self.legend({:style => {}})
       self.xAxis({})
       self.yAxis({:title => {:text => nil}, :labels => {}})
       self.tooltip({:enabled => true})
